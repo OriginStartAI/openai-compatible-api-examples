@@ -9,9 +9,13 @@ model = os.environ.get("ORIGINSTARTAI_MODEL", "YOUR_ENABLED_MODEL")
 
 payload = {
     "model": model,
-    "stream": True,
+    "temperature": 0,
     "messages": [
-        {"role": "user", "content": "Stream a short welcome message."}
+        {"role": "system", "content": "Return only valid JSON."},
+        {
+            "role": "user",
+            "content": "Extract name, intent, and urgency from: Alice needs help fixing a failed API call today.",
+        },
     ],
 }
 
@@ -26,5 +30,4 @@ request = urllib.request.Request(
 )
 
 with urllib.request.urlopen(request, timeout=60) as response:
-    for line in response:
-        print(line.decode("utf-8").rstrip())
+    print(response.read().decode("utf-8"))

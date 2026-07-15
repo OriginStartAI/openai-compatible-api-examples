@@ -14,8 +14,14 @@ const response = await fetch(`${baseUrl.replace(/\/$/, "")}/chat/completions`, {
   },
   body: JSON.stringify({
     model,
+    temperature: 0,
     messages: [
-      { role: "user", content: "Give me a one sentence API integration checklist." },
+      { role: "system", content: "Return only valid JSON." },
+      {
+        role: "user",
+        content:
+          "Extract name, intent, and urgency from: Alice needs help fixing a failed API call today.",
+      },
     ],
   }),
 });
