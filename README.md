@@ -4,6 +4,13 @@ Drop-in style examples for calling OriginStartAI with familiar OpenAI-compatible
 
 Use this repo when you want to test chat completions, streaming, JSON output, and simple migration patterns from existing OpenAI SDK code.
 
+## Why This Repo
+
+- OpenAI-compatible API examples with curl, Python, and Node.js.
+- Chat completions, streaming responses, and JSON structured output.
+- Simple migration notes for changing base URL, API key, and model.
+- First-call path before moving production traffic.
+
 ## Quick Start
 
 1. Create an account at https://originstartai.com?utm_source=github&utm_medium=repo&utm_campaign=openai_compatible_examples
@@ -41,6 +48,15 @@ model            -> enabled model on your OriginStartAI account
 - Replace the API key with `ORIGINSTARTAI_API_KEY`.
 - Confirm the model name in the OriginStartAI console.
 - Test one low-risk prompt before moving production traffic.
+
+## Search Topics
+
+- OpenAI-compatible API examples.
+- Chat completions API example.
+- Streaming chat completions.
+- JSON structured output LLM.
+- Python AI API example.
+- Node.js AI API example.
 
 ## Docs
 
