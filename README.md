@@ -1,39 +1,42 @@
 # OriginStartAI OpenAI-Compatible API Examples
 
-Drop-in style examples for calling OriginStartAI with familiar OpenAI-compatible request patterns.
+Copyable curl, Python, and Node.js examples for testing OriginStartAI with familiar OpenAI-compatible API patterns.
 
-Use this repo when you want to test chat completions, streaming, JSON output, and simple migration patterns from existing OpenAI SDK code.
+Use this repo when you want to confirm one chat completion, stream tokens, request JSON output, or migrate a small existing OpenAI-style call.
 
-## Why This Repo
+## 30-Second First Call
 
-- OpenAI-compatible API examples with curl, Python, and Node.js.
-- Chat completions, streaming responses, and JSON structured output.
-- Simple migration notes for changing base URL, API key, and model.
-- First-call path before moving production traffic.
-
-## Quick Start
-
-1. Create an account at https://originstartai.com?utm_source=github&utm_medium=repo&utm_campaign=openai_compatible_examples
-2. Get your API key from the console.
+1. Create an account: https://originstartai.com?utm_source=github&utm_medium=repo&utm_campaign=openai_compatible_examples
+2. Create an API key in the OriginStartAI console.
 3. Copy `.env.example` to `.env`.
 4. Set `ORIGINSTARTAI_API_KEY`, `ORIGINSTARTAI_BASE_URL`, and `ORIGINSTARTAI_MODEL`.
-5. Run a curl, Python, or Node.js example.
+5. Run the smallest example:
 
-New user bonus: recharge `$5` and get `$5` extra API credits.
+```bash
+bash examples/curl/chat_completion.sh
+```
 
-## Examples
+```bash
+python examples/python/chat_completion.py
+```
 
-- `examples/curl/chat_completion.sh`
-- `examples/python/chat_completion.py`
-- `examples/python/streaming.py`
-- `examples/python/json_output.py`
-- `examples/node/chat_completion.mjs`
-- `examples/node/streaming.mjs`
-- `examples/node/json_output.mjs`
+```bash
+node examples/node/chat_completion.mjs
+```
 
-## OpenAI-Compatible Pattern
+New user bonus: after your first call works, recharge `$5` and get `$5` extra API credits to test a real workflow.
 
-The migration idea is simple:
+## What Is Included
+
+| Goal | curl | Python | Node.js |
+| --- | --- | --- | --- |
+| Chat completion | `examples/curl/chat_completion.sh` | `examples/python/chat_completion.py` | `examples/node/chat_completion.mjs` |
+| Streaming | - | `examples/python/streaming.py` | `examples/node/streaming.mjs` |
+| JSON output | - | `examples/python/json_output.py` | `examples/node/json_output.mjs` |
+
+## Migration Pattern
+
+Most OpenAI-compatible migrations start with three changes:
 
 ```text
 baseURL/base_url -> OriginStartAI API base URL
@@ -41,13 +44,23 @@ apiKey/api_key   -> OriginStartAI API key
 model            -> enabled model on your OriginStartAI account
 ```
 
-## SDK Migration Notes
+Keep your prompt, response parsing, and application logic the same for the first test. Once the first call works, add retries, timeout handling, and logging before moving production traffic.
 
-- Keep your app-level prompt logic.
-- Replace the base URL with your OriginStartAI endpoint.
-- Replace the API key with `ORIGINSTARTAI_API_KEY`.
-- Confirm the model name in the OriginStartAI console.
-- Test one low-risk prompt before moving production traffic.
+## If The First Call Fails
+
+| Symptom | Check |
+| --- | --- |
+| `401 Unauthorized` | Confirm the API key in `.env` is current and has no extra spaces. |
+| `insufficient credits` | Recharge in the OriginStartAI console, then retry the same example. |
+| `model not found` | Copy the enabled model name from the console into `ORIGINSTARTAI_MODEL`. |
+| Slow response | Test streaming, shorten the prompt, and set explicit request timeouts. |
+
+## Docs
+
+- [Migration guide](docs/migration-guide.md)
+- [First call checklist](docs/first-call-checklist.md)
+- [Error reference](docs/error-reference.md)
+- [Tracking first call to recharge](docs/conversion-tracking.md)
 
 ## Search Topics
 
@@ -57,13 +70,6 @@ model            -> enabled model on your OriginStartAI account
 - JSON structured output LLM.
 - Python AI API example.
 - Node.js AI API example.
-
-## Docs
-
-- [Migration guide](docs/migration-guide.md)
-- [First call checklist](docs/first-call-checklist.md)
-- [Error reference](docs/error-reference.md)
-- [Tracking first call to recharge](docs/conversion-tracking.md)
 
 ## Links
 
