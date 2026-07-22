@@ -46,6 +46,16 @@ model            -> enabled model on your OriginStartAI account
 
 Keep your prompt, response parsing, and application logic the same for the first test. Once the first call works, add retries, timeout handling, and logging before moving production traffic.
 
+## Production Trust Checks
+
+After the examples run, use the companion trust assets before moving production traffic:
+
+- Estimate monthly spend with [`ai-api-cost-calculator`](https://github.com/OriginStartAI/ai-api-cost-calculator).
+- Measure latency and success rate with [`ai-gateway-benchmark`](https://github.com/OriginStartAI/ai-gateway-benchmark).
+- Add a lightweight health check with [`originstart-status-examples`](https://github.com/OriginStartAI/originstart-status-examples).
+
+This gives developers a clean funnel: first call, migration, cost estimate, benchmark, health check, then production rollout.
+
 ## If The First Call Fails
 
 | Symptom | Check |
