@@ -1,0 +1,38 @@
+name: First-call troubleshooting
+description: Get help with the first OpenAI-compatible API call.
+title: "[First call]: "
+labels: ["first-call"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not paste API keys, private endpoints, customer data, or server IPs. Replace secrets with placeholders such as `sk-example`.
+  - type: input
+    id: language
+    attributes:
+      label: Language or tool
+      placeholder: curl, Python, Node.js, or another SDK
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: Model
+      placeholder: gpt-4o-mini or another OpenAI-compatible model
+    validations:
+      required: false
+  - type: textarea
+    id: error
+    attributes:
+      label: Error output
+      description: Paste only sanitized error text.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Quick checks
+      options:
+        - label: I verified the account has available credits.
+        - label: I verified the base URL ends with `/v1` when the SDK requires it.
+        - label: I removed all API keys and private data from this issue.
