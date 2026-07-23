@@ -33,6 +33,7 @@ New user bonus: after your first call works, recharge `$5` and get `$5` extra AP
 | Chat completion | `examples/curl/chat_completion.sh` | `examples/python/chat_completion.py` | `examples/node/chat_completion.mjs` |
 | Streaming | - | `examples/python/streaming.py` | `examples/node/streaming.mjs` |
 | JSON output | - | `examples/python/json_output.py` | `examples/node/json_output.mjs` |
+| Timeout + retry | - | `examples/python/retry_timeout.py` | `examples/node/retry_timeout.mjs` |
 
 ## Migration Pattern
 
@@ -45,6 +46,16 @@ model            -> enabled model on your OriginStartAI account
 ```
 
 Keep your prompt, response parsing, and application logic the same for the first test. Once the first call works, add retries, timeout handling, and logging before moving production traffic.
+
+For a copyable production-style retry pattern, see:
+
+```bash
+python examples/python/retry_timeout.py
+```
+
+```bash
+node examples/node/retry_timeout.mjs
+```
 
 ## Production Trust Checks
 
