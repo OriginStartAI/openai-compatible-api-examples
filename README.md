@@ -67,6 +67,16 @@ After the examples run, use the companion trust assets before moving production 
 
 This gives developers a clean funnel: first call, migration, cost estimate, benchmark, health check, then production rollout.
 
+## Local Syntax Check
+
+Before copying the examples into a project, you can run a no-key syntax check:
+
+```bash
+python scripts/check_examples_syntax.py
+```
+
+The check does not call the API and does not read `.env`; it only verifies the Python examples compile and Node.js examples parse.
+
 ## If The First Call Fails
 
 | Symptom | Check |
